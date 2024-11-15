@@ -1,0 +1,5 @@
+-- Key mappings to navigate between buffers in Neovim (Lua version)
+vim.api.nvim_set_keymap('n', '<Leader>bn', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>bp', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>bl', ':bfirst<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>be', ':blast<CR>', { noremap = true, silent = true })
