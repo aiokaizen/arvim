@@ -1,4 +1,4 @@
-treesitter = {
+local treesitter = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function () 

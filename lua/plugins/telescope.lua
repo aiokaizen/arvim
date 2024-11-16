@@ -30,7 +30,7 @@ local telescope = {
         
         -- Load extensions
         telescope.load_extension('themes') 
-        vim.cmd("colorscheme kanagawa")
+        vim.cmd("colorscheme catppuccin-mocha")
     end
 }
 
