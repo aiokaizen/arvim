@@ -1,6 +1,13 @@
 -- { "folke/todo-comments.nvim", opts = {} },
 return {
-    "williamboman/mason.nvim",
-    opts = {}
+  "williamboman/mason.nvim",
+  opts = {
+    ensure_installed = {
+      "stylua",
+      "shellcheck",
+      "shfmt",
+      "flake8",
+      "pyright",
+    },
+  },
 }
-
