@@ -30,12 +30,15 @@ apt install fd-find
 
 ## Installation
 
-1. Clean up you nvim environment:
+1. Backup your current nvim installation:
 ``` bash
-# Linux / MacOS (unix)
-mv ~/.config/nvim ~/.config/nvim.bak
-rm -rf ~/.local/state/nvim
-rm -rf ~/.local/share/nvim
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
 ```
 
 2. Clone the repository
