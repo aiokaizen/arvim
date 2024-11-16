@@ -1,5 +1,6 @@
 local themes = {
     "rebelot/kanagawa.nvim",
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
 local telescope = {
