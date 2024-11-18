@@ -15,19 +15,29 @@ return {
                     "lua_ls",
                     "rust_analyzer",
                     "pyright",
-                }
+                },
+
             })
+
+            require("mason-lspconfig").setup_handlers {
+                -- Default handler
+                function (server_name)
+                    require("lspconfig")[server_name].setup {}
+                end,
+
+                -- Dedicated handlers for specific servers.
+                ["pyright"] = function ()
+                    require("pyright").setup({
+                        --
+                    })
+                end
+            }
         end
     },
     {
         -- LSP: Language Server Protocol
         "neovim/nvim-lspconfig",
         dependencies = { "williamboman/mason-lspconfig.nvim", },
-        config = function ()
-            local lspconfig = require("lspconfig")
-            lspconfig.pyright.setup({ })
-            lspconfig.lua_ls.setup({ })
-        end
     }
 }
 
