@@ -41,4 +41,3 @@ vim.opt.termguicolors = true
 -- Disable netrw (Default vim treeview)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
