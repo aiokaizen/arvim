@@ -9,7 +9,8 @@ local treesitter = {
                 "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html",
                 "python", "css", "dockerfile", "git_config", "git_rebase", "gitattributes",
                 "gitcommit", "gitignore", "go", "helm", "json", "regex", "requirements", "rst",
-                "scss", "sql", "ssh_config", "tmux", "toml", "typescript", "xml", "yaml"
+                "scss", "sql", "ssh_config", "tmux", "toml", "typescript", "xml", "yaml",
+                "markdown", "markdown_inline",
             },
           sync_install = false,
           highlight = { enable = true },
