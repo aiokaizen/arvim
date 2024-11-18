@@ -23,7 +23,7 @@ vim.opt.shiftwidth = 4  -- Control vim indents
 vim.opt.clipboard = "unnamedplus"  -- Synchronizes the vim with system clipboard
 
 -- Scroll behaviour
-vim.opt.scrolloff = 999  -- Scroll stopps in the middle instead of gowing all the way down
+vim.opt.scrolloff = 10  -- Scroll stopps in the middle instead of gowing all the way down
 
 -- Virtual Edit
 vim.opt.virtualedit = "block"  -- Allow virtual editing only on visual block mode

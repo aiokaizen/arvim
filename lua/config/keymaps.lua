@@ -3,3 +3,4 @@ vim.api.nvim_set_keymap('n', '<Leader>bn', ':bnext<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<Leader>bp', ':bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>bl', ':bfirst<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>be', ':blast<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
