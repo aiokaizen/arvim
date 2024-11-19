@@ -19,12 +19,12 @@ return {
                 },
                 handlers = {
                     -- Default handler
-                    function (server_name)
+                    function(server_name)
                         require("lspconfig")[server_name].setup {}
                     end,
 
                     -- Dedicated handlers for specific servers.
-                    ["pyright"] = function ()
+                    ["pyright"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.pyright.setup({
                             settings = {
@@ -42,7 +42,7 @@ return {
                         })
                     end,
 
-                    ["ruff"] = function ()
+                    ["ruff"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.ruff.setup({
                             trace = 'messages',
@@ -56,7 +56,7 @@ return {
                         })
                     end,
 
-                    ["lua_ls"] = function ()
+                    ["lua_ls"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.lua_ls.setup {
                             settings = {
@@ -79,4 +79,3 @@ return {
         dependencies = { "williamboman/mason-lspconfig.nvim", },
     }
 }
-
