@@ -53,8 +53,16 @@ return {
 
 						lspconfig.pyright.setup({
 							settings = {
-								-- pyright = { },
-								-- python = { analysis = { }, },
+								pyright = {
+									-- disableOrganizeImports = true,
+								},
+								python = {
+									analysis = {
+										-- Ignore all files for analysis to exclusively use Ruff for linting
+										ignore = { "*" },
+										autoImportCompletions = true, -- Enable auto-import completions
+									},
+								},
 							},
 							on_attach = function(client, bufnr)
 								-- Enable completion triggered by <C-x><C-o>
@@ -87,6 +95,20 @@ return {
 								},
 							},
 						})
+
+						-- Enable organize imports for ruff on save
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							pattern = "*.py",
+							callback = function()
+								vim.lsp.buf.format({ async = false })
+							end,
+						})
+						vim.api.nvim_set_keymap(
+							"n",
+							"<leader>oi",
+							":lua vim.lsp.buf.format({ async = false })<CR>",
+							{ noremap = true, silent = true, desc = "Organize imports using ruff" }
+						)
 					end,
 
 					["lua_ls"] = function()

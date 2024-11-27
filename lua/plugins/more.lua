@@ -117,7 +117,6 @@ return {
 				},
 
 				formatter_by_ft = {
-					python = formatters.ruff,
 					django = formatters.djlint,
 					jinja = formatters.djlint,
 					css = formatters.prettierd,
@@ -131,16 +130,13 @@ return {
 					typescript = formatters.prettierd,
 					typescriptreact = formatters.prettierd,
 					yaml = formatters.lsp,
-
-					-- Add your own shell formatters:
-					-- myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),
+					python = formatters.ruff,
 
 					-- Concatenate formatters
 					-- python = {
-					--     formatters.remove_trailing_whitespace,
-					--     formatters.shell({ cmd = "tidy-imports" }),
-					--     formatters.black,
-					--     formatters.ruff,
+					--                    -- Add your own shell formatters:
+					-- 	formatters.shell({ cmd = { "ruff", "check", "--fix", "--stdin-filename", "%" } }),
+					-- 	formatters.ruff,
 					-- },
 				},
 				error_notifier = vim_notify,
@@ -188,5 +184,44 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+	{
+		"rebelot/heirline.nvim",
+		dependencies = { "nvim-lualine/lualine.nvim" },
+		config = function()
+			local actived_venv = function()
+				-- local venv_name = require("venv-selector").get_active_venv()
+				local venv_name = vim.g.VenvSelector_active_venv
+				if venv_name ~= nil then
+					return string.gsub(venv_name, ".*/pypoetry/virtualenvs/", "(poetry) ")
+				else
+					return "venv"
+				end
+			end
+
+			local venv = {
+				{
+					provider = function()
+						return "  " .. actived_venv()
+					end,
+				},
+				on_click = {
+					callback = function()
+						vim.cmd.VenvSelect()
+					end,
+					name = "heirline_statusline_venv_selector",
+				},
+			}
+			local heirline = require("heirline")
+			heirline.setup(venv)
+			-- heirline.statusline = venv
+		end,
 	},
 }
